@@ -523,7 +523,7 @@ QString root = isLocal ? "/" : QString();
       QObject::connect(&progress, &ProgressDialog::outputAvailable, this,
                        [=](const QString &output) {
                          QTextStream out(file);
-                         out.setCodec("UTF-8");
+                         out.setEncoding(QStringConverter::Utf8);
 
                          for (const auto &line : output.split('\n')) {
                            if (re.exactMatch(line.trimmed())) {
@@ -557,7 +557,7 @@ QString root = isLocal ? "/" : QString();
              ? settings->setValue("Settings/driveShared", Qt::Checked)
              : settings->setValue("Settings/driveShared", Qt::Unchecked));
 
-        qApp->setActiveWindow(this);
+        //qApp->setActiveWindow(this);
         QDir destPath = model->path(parent);
         QString dest = QFileInfo(path.path()).isDir()
                            ? destPath.filePath(path.dirName())

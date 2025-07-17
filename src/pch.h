@@ -11,6 +11,7 @@
 #include <QtGui>
 #include <QtNetwork>
 #include <QtWidgets>
+#include <QtCore5Compat/QtCore5Compat>
 
 #if defined(Q_OS_WIN32)
 #include <QtWinExtras>
